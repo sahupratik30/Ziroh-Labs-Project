@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --header-color: #000;
+  --logo-color: #fff;
+  --grey: #aaaaaa;
+  --light-grey: #f3f3f3;
+  --light-green: #17d9aa;
+  --shadow: 0px 0px 1px #000;
+}
+::selection {
+  background-color: var(--grey);
+}
+body {
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+.header {
+  width: 100%;
+  height: 4rem;
+  background-color: var(--header-color);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+.header h1 {
+  font-size: 2rem;
+  color: var(--logo-color);
+  margin-left: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.header .dropdown button {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+  gap: 1.2rem;
+}
+.header .dropdown button,
+.header .dropdown button:focus {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+.header .dropdown-menu a {
+  cursor: pointer;
+}
+.editor__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit__area {
+  width: 8.3in;
+  max-width: 95%;
+  margin: 4rem 0;
+  position: relative;
+}
+.suggestions {
+  position: absolute;
+  display: flex;
+  top: -4.5rem;
+  right: 50%;
+  height: 2.5rem;
+  transform: translate(50%, 50%);
+  min-width: max-content;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  -webkit-transform: translate(50%, 50%);
+  -moz-transform: translate(50%, 50%);
+  -ms-transform: translate(50%, 50%);
+  -o-transform: translate(50%, 50%);
+}
+.suggestions li {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.35rem 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--light-green);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.suggestions li:first-child {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+.suggestions li:last-child {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+.suggestions li:not(:last-of-type) {
+  border-right: 1px solid rgb(206, 206, 206);
+}
+.suggestions li:hover,
+.suggestions li.selected {
+  background-color: var(--light-green);
+  color: #fff;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+.toolbar {
+  height: 3rem;
+  width: 100%;
+  background-color: #fff;
+  position: sticky;
+  z-index: 2;
+  top: 4rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 0.8px #000;
+}
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 90%;
+}
+.tools button {
+  width: 1.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.tools .underline {
+  text-decoration: underline;
+}
+.tools button:hover {
+  border-color: var(--grey);
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+.tools button:last-of-type {
+  position: relative;
+}
+.tools input[type="color"] {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+}
+.tools #colorWrapper {
+  width: 1.3rem;
+  height: 1.3rem;
+  background-color: #000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.tools button:last-of-type::after {
+  position: absolute;
+  content: "";
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+  background-color: var(--background, #000);
+  height: 4px;
+}
+.tools .bold {
+  font-weight: bold;
+}
+.tools .italic {
+  font-style: italic;
+}
+.editor {
+  width: 100%;
+  height: auto;
+  min-height: 11.7in;
+  resize: none;
+  padding: 1in;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0px 0px 5px var(--grey);
+  outline: none;
+  background-color: #fff;
+}
+.autocomplete {
+  position: absolute;
+  max-width: max-content;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style-type: none;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-transform: translateX(-50%, 50%);
+  -moz-transform: translateX(-50%, 50%);
+  -ms-transform: translateX(-50%, 50%);
+  -o-transform: translateX(-50%, 50%);
+}
+.autocomplete li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  background-color: #000;
+  cursor: pointer;
+  border: 2px solid #000;
+  color: #fff;
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+}
+.autocomplete li:hover {
+  background-color: transparent;
+  color: #000;
+}
+@media screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  .header {
+    justify-content: space-between;
+    padding-right: 1rem;
+  }
+  .header .dropdown-menu {
+    transform: translate(-35%, 45%) !important;
+    -webkit-transform: translate(-35%, 45%) !important;
+    -moz-transform: translate(-35%, 45%) !important;
+    -ms-transform: translate(-35%, 45%) !important;
+    -o-transform: translate(-35%, 45%) !important;
+  }
+  .editor {
+    padding: 0.4in;
+    font-size: 0.85rem;
+  }
+  .tools button {
+    font-size: 1.2rem;
+  }
+  .tools button:hover {
+    box-shadow: none;
+  }
+  .tools button:last-of-type::after {
+    height: 3px;
+  }
+  .edit__area {
+    position: relative;
+  }
+  .suggestions {
+    position: absolute;
+    top: -4rem;
+    height: max-content;
+    width: max-content;
+    transform: translate(50%, 50%);
+    transform: translateX(-110%);
+    -webkit-transform: translate(50%, 50%);
+    -moz-transform: translate(50%, 50%);
+    -ms-transform: translate(50%, 50%);
+    -o-transform: translate(50%, 50%);
+  }
+  .suggestions li {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    border-right: none;
+  }
+  .suggestions li:hover {
+    background-color: #fff;
+    color: var(--light-green);
+  }
+  .autocomplete li {
+    padding: 0.1rem 0.4rem;
+    font-size: 0.85rem;
+  }
+}

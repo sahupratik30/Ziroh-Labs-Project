@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>
+      DocxEditor: Create documents with spell checking and autocomplete
+      functionality
+    </title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>DocxEditor</h1>
+      <div class="dropdown">
+        <button
+          class="btn btn-dark dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          File
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" id="txtBtn">Save as TXT</a>
+          <a class="dropdown-item" id="wordBtn">Save as Word</a>
+          <a class="dropdown-item" id="pdfBtn">Save as PDF</a>
+        </div>
+      </div>
+    </header>
+    <div class="editor__wrapper" id="editor__wrapper">
+      <div class="toolbar">
+        <div class="tools" id="tools">
+          <button class="bold" id="bold">B</button>
+          <button class="italic" id="italic">I</button>
+          <button class="underline" id="underline">U</button>
+          <button id="colorBtn">A</button>
+          <div id="colorWrapper">
+            <input type="color" id="color" />
+          </div>
+        </div>
+      </div>
+      <div class="edit__area" id="editArea">
+        <div
+          class="editor"
+          id="editor"
+          contenteditable="true"
+          spellcheck="true"
+        ></div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="dist/bundle.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/download-file.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
